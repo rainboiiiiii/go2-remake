@@ -14,9 +14,7 @@ import com.go2super.server.websocket.WebSocketSmartServer;
 import com.go2super.service.LoginService;
 import com.go2super.service.PacketService;
 import lombok.SneakyThrows;
-import org.apache.mina.core.buffer.IoBuffer;
 
-import java.nio.ByteOrder;
 import java.util.Optional;
 
 public class LoginListener implements PacketListener {
@@ -92,19 +90,18 @@ public class LoginListener implements PacketListener {
 
         LoggedGameUser gameUser = loginService.login(session, packet);
 
-        IoBuffer response = IoBuffer.allocate(16);
-        response.order(ByteOrder.LITTLE_ENDIAN);
-
-        Go2Buffer resgo2 = new Go2Buffer(response, false);
-        resgo2.addShort(response.limit()); // SIZE
+        Go2Buffer resgo2 = new Go2Buffer(32);
+        resgo2.addShort(0); // SIZE (patched below)
         resgo2.addShort(505); // TYPE
-        resgo2.getBuffer().put((byte) 0); // UNKNW
+        resgo2.addByte((byte) 0); // UNKNW
 
         resgo2.addShort(0); // Necessarily Trash
         resgo2.addByte((byte) 0); // Necessarily Trash
 
         resgo2.addInt(gameUser.getGuid()); // guid
         resgo2.addInt(1); // guide
+
+        resgo2.getBuffer().putShort(0, (short) resgo2.getCalculatedSize());
 
         packet.getSmartServer().send(resgo2);
 

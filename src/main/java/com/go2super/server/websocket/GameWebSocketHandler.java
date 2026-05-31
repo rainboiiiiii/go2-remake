@@ -44,15 +44,11 @@ public class GameWebSocketHandler extends BinaryWebSocketHandler {
         byte[] payload = new byte[payloadBuffer.remaining()];
         payloadBuffer.get(payload);
 
-        IoBuffer realBuffer = PacketFraming.toIoBuffer(payload, payload.length);
-
         try {
-            PacketFraming.processBuffer(
-                    realBuffer,
+            PacketFraming.processWebSocketMessage(
+                    payload,
                     gameNetworkService.getPacketRouter(),
-                    null,
-                    connection,
-                    true
+                    connection
             );
         } catch (Exception e) {
             BotLogger.log("WebSocket packet error for session " + session.getId() + ": " + e.getMessage());

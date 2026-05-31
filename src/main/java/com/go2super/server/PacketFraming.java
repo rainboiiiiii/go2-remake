@@ -16,6 +16,31 @@ public final class PacketFraming {
     }
 
     @SneakyThrows
+    public static void processWebSocketMessage(
+            byte[] payload,
+            PacketRouter packetRouter,
+            SmartServer smartServer
+    ) {
+        if (payload == null || payload.length < 4) {
+            return;
+        }
+
+        IoBuffer buffer = IoBuffer.wrap(payload);
+        buffer.order(ByteOrder.LITTLE_ENDIAN);
+
+        Go2Buffer current = new Go2Buffer(buffer, false);
+        int packetSize = current.getMsgSize();
+        int packetType = current.getMsgType();
+
+        if (packetType <= 0 || packetSize <= 0) {
+            return;
+        }
+
+        smartServer.refresh();
+        packetRouter.playPacket(packetSize, packetType, current, null, smartServer);
+    }
+
+    @SneakyThrows
     public static void processBuffer(
             IoBuffer realBuffer,
             PacketRouter packetRouter,
