@@ -10,7 +10,6 @@ import com.go2super.service.jobs.user.ShipConstructionJob;
 import lombok.Data;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Data
 @Getter
 @Service
-@EnableScheduling
 public class JobService {
 
     private static JobService instance;

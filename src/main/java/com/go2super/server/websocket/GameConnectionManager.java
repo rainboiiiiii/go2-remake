@@ -2,7 +2,6 @@ package com.go2super.server.websocket;
 
 import com.go2super.service.PacketService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketSession;
@@ -11,7 +10,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
-@EnableScheduling
 @ConditionalOnExpression("'${application.game.transport:both}'.contains('websocket')")
 public class GameConnectionManager {
 

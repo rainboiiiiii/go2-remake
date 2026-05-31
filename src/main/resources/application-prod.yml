@@ -4,10 +4,15 @@ spring:
       enabled: false
     livereload:
       enabled: false
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI}
 
 application:
   game:
     transport: websocket
+  public:
+    base-url: ${PUBLIC_BASE_URL:http://localhost:9090}
 
 logging:
   level:
