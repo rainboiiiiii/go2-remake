@@ -195,42 +195,32 @@ public class Match {
 
         switch (interval) {
 
-            case CLOSEST -> {
-
-                if(currentDistance > compareDistance)
+            case CLOSEST:
+                if (currentDistance > compareDistance) {
                     return compare;
-
+                }
                 return current;
 
-            }
-
-            case COMMANDER, MAX_ATTACK_POWER, MAX_DURABILITY -> {
-
-                if(compareAttribute > currentAttribute)
+            case COMMANDER:
+            case MAX_ATTACK_POWER:
+            case MAX_DURABILITY:
+                if (compareAttribute > currentAttribute) {
                     return compare;
-
+                }
                 return current;
 
-            }
-
-            case MIN_ATTACK_POWER, MIN_DURABILITY -> {
-
-                if(compareAttribute < currentAttribute)
+            case MIN_ATTACK_POWER:
+            case MIN_DURABILITY:
+                if (compareAttribute < currentAttribute) {
                     return compare;
-
+                }
                 return current;
 
-            }
+            case DEFENSIVE_BUILDINGS:
+                break;
 
-            case DEFENSIVE_BUILDINGS -> {
-
-            }
-
-            default -> {
-
-
-
-            }
+            default:
+                break;
 
         }
 
