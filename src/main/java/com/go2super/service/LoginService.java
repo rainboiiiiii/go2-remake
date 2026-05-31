@@ -235,6 +235,7 @@ public class LoginService {
                 .email(dto.getEmail())
                 .username(dto.getUsername())
                 .password(Crypto.encrypt(dto.getPassword()))
+                .userIds(new ArrayList<>())
                 .accountStatus(AccountStatus.REGISTER)
                 .userRank(UserRank.USER)
                 .registerDate(now())

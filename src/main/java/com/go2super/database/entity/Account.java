@@ -37,6 +37,7 @@ public class Account {
     private Date lastConnection;
     private Date registerDate;
 
+    @Builder.Default
     private List<Long> userIds = new ArrayList<>();
     private AccountStatus accountStatus;
 

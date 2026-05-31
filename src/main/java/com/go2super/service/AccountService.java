@@ -28,6 +28,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -47,7 +48,8 @@ public class AccountService {
 
     private static AccountService accountService;
 
-    private static LoginService loginService = LoginService.getInstance();
+    @Autowired
+    private LoginService loginService;
 
     @Autowired
     CommanderRepository commanderRepository;
@@ -83,9 +85,9 @@ public class AccountService {
         }
 
         Account account = sessionAccount.get().getAccount();
+        List<Long> userIds = account.getUserIds() != null ? account.getUserIds() : Collections.emptyList();
 
-        List<UserDTO> users = account
-                .getUserIds()
+        List<UserDTO> users = userIds
                 .stream()
                 .map(x -> {
 
@@ -123,7 +125,8 @@ public class AccountService {
                     .build();
 
         Account account = sessionAccount.get().getAccount();
-        Optional<Long> id = account.getUserIds().stream().filter(x -> x == userId).findAny();
+        List<Long> userIds = account.getUserIds() != null ? account.getUserIds() : Collections.emptyList();
+        Optional<Long> id = userIds.stream().filter(x -> x == userId).findAny();
 
         if (id.isEmpty())
             return BasicResponse
@@ -201,6 +204,9 @@ public class AccountService {
                     .build();
 
         Account account = sessionAccount.get().getAccount();
+        if (account.getUserIds() == null) {
+            account.setUserIds(new ArrayList<>());
+        }
 
         if(account.getUserIds().size() >= MAX_USER)
             return BasicResponse
@@ -410,7 +416,7 @@ public class AccountService {
         return accountService;
     }
 
-    public static LoginService getLoginService() {
+    public LoginService getLoginService() {
         return loginService;
     }
 
