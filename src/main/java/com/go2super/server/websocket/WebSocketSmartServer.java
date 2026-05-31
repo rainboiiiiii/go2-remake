@@ -28,11 +28,13 @@ public class WebSocketSmartServer extends SmartServer {
             throw new IllegalStateException("WebSocket session is closed");
         }
 
-        int length = buffer.getCalculatedSize() > 0 ? buffer.getCalculatedSize() : buffer.getBuffer().remaining();
+        int length = buffer.getCalculatedSize() > 0
+                ? buffer.getCalculatedSize()
+                : buffer.getBuffer().remaining();
+
         byte[] payload = new byte[length];
-        buffer.getBuffer().mark();
+        buffer.getBuffer().position(0);
         buffer.getBuffer().get(payload, 0, length);
-        buffer.getBuffer().reset();
 
         synchronized (session) {
             session.sendMessage(new BinaryMessage(payload));
