@@ -16,5 +16,6 @@ COPY --from=build /app/target/supergo2-server.jar ./app.jar
 EXPOSE 10000
 
 ENV SPRING_PROFILES_ACTIVE=prod
+ENV GAME_TRANSPORT=websocket
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar", "--spring.profiles.active=prod"]

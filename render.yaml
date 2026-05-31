@@ -1,8 +1,12 @@
+# Render Blueprint — only applied when you deploy via "New > Blueprint".
+# If you created the Web Service manually, set env vars in the Render dashboard instead.
+
 services:
   - type: web
     name: go2super-server
     runtime: docker
     plan: free
+    healthCheckPath: /health
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod

@@ -5,6 +5,10 @@ spring:
     livereload:
       enabled: false
 
+application:
+  game:
+    transport: websocket
+
 logging:
   level:
     root: INFO
