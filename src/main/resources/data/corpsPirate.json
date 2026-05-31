@@ -1,0 +1,84 @@
+{
+  "pirates": [
+    {
+      "name": "corp:pirates.1",
+      "level": 0,
+      "corpsLevel": 2,
+      "honor": 15,
+      "wealth": 5,
+      "shipTeamNum": 50
+    },
+    {
+      "name": "corp:pirates.2",
+      "level": 1,
+      "corpsLevel": 2,
+      "honor": 30,
+      "wealth": 13,
+      "shipTeamNum": 50
+    },
+    {
+      "name": "corp:pirates.3",
+      "level": 2,
+      "corpsLevel": 3,
+      "honor": 50,
+      "wealth": 26,
+      "shipTeamNum": 50
+    },
+    {
+      "name": "corp:pirates.4",
+      "level": 3,
+      "corpsLevel": 4,
+      "honor": 72,
+      "wealth": 44,
+      "shipTeamNum": 50
+    },
+    {
+      "name": "corp:pirates.5",
+      "level": 4,
+      "corpsLevel": 5,
+      "honor": 98,
+      "wealth": 70,
+      "shipTeamNum": 50
+    },
+    {
+      "name": "corp:pirates.6",
+      "level": 5,
+      "corpsLevel": 5,
+      "honor": 117,
+      "wealth": 105,
+      "shipTeamNum": 50
+    },
+    {
+      "name": "corp:pirates.7",
+      "level": 6,
+      "corpsLevel": 6,
+      "honor": 147,
+      "wealth": 151,
+      "shipTeamNum": 50
+    },
+    {
+      "name": "corp:pirates.8",
+      "level": 7,
+      "corpsLevel": 7,
+      "honor": 180,
+      "wealth": 208,
+      "shipTeamNum": 50
+    },
+    {
+      "name": "corp:pirates.9",
+      "level": 8,
+      "corpsLevel": 8,
+      "honor": 216,
+      "wealth": 279,
+      "shipTeamNum": 50
+    },
+    {
+      "name": "corp:pirates.10",
+      "level": 9,
+      "corpsLevel": 9,
+      "honor": 255,
+      "wealth": 365,
+      "shipTeamNum": 50
+    }
+  ]
+}

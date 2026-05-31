@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: go2super-server
+    runtime: docker
+    plan: free
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: GAME_TRANSPORT
+        value: websocket
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: SPRING_DATA_MONGODB_URI
+        sync: false

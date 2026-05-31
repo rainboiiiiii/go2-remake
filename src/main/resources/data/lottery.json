@@ -1,0 +1,263 @@
+{
+  "lottery": [
+    {
+      "id": 0,
+      "position": 15,
+      "name": "Super Case",
+      "broadcast": true,
+      "weight": 10,
+      "reward": {
+        "type": "propPool",
+        "ids": [
+          9,
+          36,
+          81,
+          126,
+          162,
+          171,
+          207,
+          225,
+          243,
+          252,
+          261,
+          324,
+          342,
+          432,
+          450,
+          468,
+          477,
+          486,
+          495,
+          504
+        ],
+        "amount": 1
+      }
+    },
+    {
+      "id": 1,
+      "position": 4,
+      "name": "Metal Mining Boost",
+      "broadcast": false,
+      "weight": 1550,
+      "reward": {
+        "type": "prop",
+        "id": 905,
+        "amount": 1
+      }
+    },
+    {
+      "id": 2,
+      "position": 2,
+      "name": "He3 Mining Boost",
+      "broadcast": false,
+      "weight": 1550,
+      "reward": {
+        "type": "prop",
+        "id": 906,
+        "amount": 1
+      }
+    },
+    {
+      "id": 3,
+      "position": 13,
+      "name": "Extra Tax",
+      "broadcast": false,
+      "weight": 1000,
+      "reward": {
+        "type": "prop",
+        "id": 907,
+        "amount": 1
+      }
+    },
+    {
+      "id": 4,
+      "position": 7,
+      "name": "Badge",
+      "broadcast": false,
+      "weight": 1000,
+      "reward": {
+        "type": "prop",
+        "id": 931,
+        "amount": 25
+      }
+    },
+    {
+      "id": 5,
+      "position": 9,
+      "name": "Raw Gemstones",
+      "broadcast": false,
+      "weight": 1500,
+      "reward": {
+        "type": "prop",
+        "id": 1119,
+        "amount": 10
+      }
+    },
+    {
+      "id": 6,
+      "position": 10,
+      "name": "Gaseous Planet",
+      "broadcast": false,
+      "weight": 400,
+      "reward": {
+        "type": "prop",
+        "id": 941,
+        "amount": 1
+      }
+    },
+    {
+      "id": 7,
+      "position": 3,
+      "name": "Metallic Planet",
+      "broadcast": false,
+      "weight": 400,
+      "reward": {
+        "type": "prop",
+        "id": 940,
+        "amount": 1
+      }
+    },
+    {
+      "id": 8,
+      "position": 8,
+      "name": "Uni-spark",
+      "broadcast": false,
+      "weight": 500,
+      "reward": {
+        "type": "prop",
+        "id": 4490,
+        "amount": 30
+      }
+    },
+    {
+      "id": 9,
+      "position": 16,
+      "name": "Galaxy Transfer",
+      "broadcast": false,
+      "weight": 800,
+      "reward": {
+        "type": "prop",
+        "id": 923,
+        "amount": 1
+      }
+    },
+    {
+      "id": 10,
+      "position": 5,
+      "name": "Primus Cube",
+      "broadcast": false,
+      "weight": 220,
+      "reward": {
+        "type": "prop",
+        "id": 4489,
+        "amount": 30
+      }
+    },
+    {
+      "id": 11,
+      "position": 12,
+      "name": "Legendary Commander Card",
+      "broadcast": true,
+      "weight": 10,
+      "reward": {
+        "type": "propPool",
+        "ids": [
+          45,
+          72,
+          99,
+          198,
+          288,
+          315,
+          333,
+          351,
+          360,
+          405,
+          414,
+          423,
+          441,
+          459,
+          2259,
+          2313,
+          2322,
+          2331,
+          2358,
+          2367,
+          2394,
+          2403
+        ],
+        "amount": 1
+      }
+    },
+    {
+      "id": 12,
+      "position": 1,
+      "name": "Voucher Pack",
+      "broadcast": true,
+      "weight": 80,
+      "reward": {
+        "type": "voucher",
+        "amount": 300
+      }
+    },
+    {
+      "id": 13,
+      "position": 11,
+      "name": "Resetting Card",
+      "broadcast": false,
+      "weight": 600,
+      "reward": {
+        "type": "prop",
+        "id": 924,
+        "amount": 3
+      }
+    },
+    {
+      "id": 14,
+      "position": 6,
+      "name": "Adv Galaxy Transfer",
+      "broadcast": true,
+      "weight": 150,
+      "reward": {
+        "type": "prop",
+        "id": 901,
+        "amount": 1
+      }
+    },
+    {
+      "id": 15,
+      "position": 14,
+      "name": "Life Boat I",
+      "broadcast": true,
+      "weight": 2,
+      "reward": {
+        "type": "prop",
+        "id": 1552,
+        "amount": 1
+      }
+    },
+    {
+      "id": 16,
+      "position": 17,
+      "name": "Super Life Boat I",
+      "broadcast": true,
+      "weight": 1,
+      "reward": {
+        "type": "prop",
+        "id": 1560,
+        "amount": 1
+      }
+    },
+    {
+      "id": 17,
+      "position": 0,
+      "name": "Burning Triad I",
+      "broadcast": false,
+      "weight": 180,
+      "reward": {
+        "type": "prop",
+        "id": 4229,
+        "amount": 1
+      }
+    }
+  ]
+}

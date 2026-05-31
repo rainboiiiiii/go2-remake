@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://USER:PASSWORD@CLUSTER.mongodb.net/go2super?retryWrites=true&w=majority&appName=go2-remake
+
+application:
+  game:
+    transport: websocket
+  public:
+    base-url: http://localhost:9090

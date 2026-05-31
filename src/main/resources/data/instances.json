@@ -1,0 +1,117 @@
+{
+  "instance": [
+    {
+      "id": 1,
+      "name": "instance:normal.1",
+      "experienceGain": 180,
+      "rewards": [
+        { "prop": "prop:lv1TreasureBox", "num": 1, "weight": 1 }
+      ],
+      "playerFleets": [
+        { "x": 6, "y": 16 },
+        { "x": 8, "y": 16 },
+        { "x": 8, "y": 18 }
+      ],
+      "fleets": [
+        {
+          "x": 14,
+          "y": 10,
+          "layout": "layout:ballistic1"
+        },
+        {
+          "x": 16,
+          "y": 8,
+          "layout": "layout:ballistic1"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "instance:normal.2",
+      "experienceGain": 500,
+      "rewards": [
+        { "prop": "prop:lv2TreasureBox", "num": 1, "weight": 1 }
+      ],
+      "playerFleets": [
+        { "x": 8, "y": 12 },
+        { "x": 7, "y": 13 },
+        { "x": 13, "y": 17 },
+        { "x": 12, "y": 18 }
+      ],
+      "fleets": [
+        {
+          "x": 16,
+          "y": 8,
+          "layout": "layout:ballistic1"
+        },
+        {
+          "x": 17,
+          "y": 7,
+          "layout": "layout:ballistic1"
+        },
+        {
+          "x": 17,
+          "y": 9,
+          "layout": "layout:ballistic1"
+        },
+        {
+          "x": 18,
+          "y": 8,
+          "layout": "layout:missile3"
+        }
+      ]
+    }
+  ],
+  "layout": [
+    {
+      "name": "layout:ballistic1",
+      "targetPriority": "target:closest",
+      "targetRange": "target:minRange",
+      "commander": {
+        "name": "commander:angla",
+        "rank": 1,
+        "lv": 5,
+        "accuracy": 10,
+        "dodge": 10,
+        "speed": 10,
+        "electron": 10
+      },
+      "layout": [
+        { "design": "design:estrellaA", "amount": 5 },
+        { "design": "design:estrellaA", "amount": 5 },
+        { "design": "design:estrellaA", "amount": 5 },
+        null,
+        { "design": "design:estrellaA", "amount": 10 },
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "name": "layout:missile3",
+      "targetPriority": "target:maxAttack",
+      "targetRange": "target:maxRange",
+      "commander": {
+        "name": "commander:angla",
+        "rank": 1,
+        "lv": 5,
+        "accuracy": 10,
+        "dodge": 10,
+        "speed": 10,
+        "electron": 10
+      },
+      "layout": [
+        { "design": "design:parke", "amount": 5 },
+        null,
+        { "design": "design:parke", "amount": 5 },
+        null,
+        null,
+        null,
+        { "design": "design:parke", "amount": 5 },
+        null,
+        { "design": "design:parke", "amount": 5 }
+      ]
+    }
+  ]
+}

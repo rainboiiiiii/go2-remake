@@ -1,0 +1,11 @@
+spring:
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO

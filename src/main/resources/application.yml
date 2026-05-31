@@ -1,0 +1,60 @@
+## SERVIDOR
+server:
+  port: ${PORT:9090}
+  compression:
+    enabled: true
+  error:
+    include-stacktrace: never
+  servlet:
+    context-path: /
+
+## APLICACION
+spring:
+  application:
+    name: go2super-server
+    version: v1.0.0
+    restPort: ${server.port}
+  messages:
+    encoding: UTF-8
+  # Database
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb://127.0.0.1:27017}
+      authentication-database: admin
+      database: go2super
+  devtools:
+    add-properties: true
+    livereload:
+      enabled: true
+  jackson:
+    time-zone: GMT-5
+
+## APPLICATION
+application:
+  log: /logs/
+  public:
+    base-url: ${PUBLIC_BASE_URL:http://localhost:9090}
+  services:
+    login: /login
+    account: /account
+    status: /status
+    events: /events
+    wheel: /wheel
+  game:
+    # websocket = Render/cloud (HTTP + WS on one port)
+    # tcp = legacy Flash client (ports 90, 458, 5050)
+    # both = local dev with Flash + Unity
+    transport: ${GAME_TRANSPORT:both}
+    websocket-path: ${GAME_WS_PATH:/ws/game}
+    ip: ${GAME_SERVER_IP:127.0.0.1}
+    timeout: 70   # Close the connection after X seconds of socket inactivity (s)
+    interval: 100 # Interval to check timeout and reduce CPU usage (ms)
+
+## LOGGGER
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    co.com.aruma: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss:SSS} [%5p] [%t] - %15c{1}:[%4L] - %m%n"
