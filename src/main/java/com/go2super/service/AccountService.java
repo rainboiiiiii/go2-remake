@@ -226,10 +226,9 @@ public class AccountService {
 
                 .username(dto.getUsername())
                 .typeStart(dto.getTypeStar())
-                .ground(dto.getGround())
+                .ground(Math.max(0, Math.min(2, dto.getGround())))
 
                 .gameServerId(' ')
-                .ground(0)
                 .card1(0)
                 .card2(0)
                 .card3(0)

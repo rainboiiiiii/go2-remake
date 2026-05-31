@@ -764,7 +764,7 @@ public class PlayerListener implements PacketListener {
         packet.setGalaxyId(user.getPlanet().getPosition().galaxyId());
         packet.setViewFlag((char) user.getViewFlag(user.getGuid()));
         packet.setConsortiaLeader((short) 0);
-        packet.setStarType((char) 0);
+        packet.setStarType((char) Math.max(0, Math.min(2, user.getGround())));
         packet.setBuildInfoList(UserService.getInstance().getBuilds(user));
         packet.setDataLen(packet.getBuildInfoList().size());
 

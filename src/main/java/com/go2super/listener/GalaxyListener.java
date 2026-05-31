@@ -141,8 +141,8 @@ public class GalaxyListener implements PacketListener {
         packet.setGalaxyId(user.getPlanet().getPosition().galaxyId());
         packet.setViewFlag((char) user.getViewFlag(requester));
         packet.setConsortiaLeader((short) 0);
-        packet.setStarType((char) 0);
-        packet.setBuildInfoList(UserService.getInstance().getBuilds(user)); // getDebugBase() or getInitialBase()
+        packet.setStarType((char) Math.max(0, Math.min(2, user.getGround())));
+        packet.setBuildInfoList(UserService.getInstance().getBuilds(user));
         packet.setDataLen(packet.getBuildInfoList().size());
 
         return packet;
