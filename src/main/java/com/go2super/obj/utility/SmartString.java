@@ -22,7 +22,25 @@ public class SmartString {
     }
 
     public String shrink(int length) {
-        return value.substring(0, length);
+        if (value == null || value.isEmpty()) {
+            return "";
+        }
+
+        int end = value.indexOf('\0');
+        if (end < 0) {
+            end = value.length();
+        }
+
+        end = Math.min(end, length);
+        return value.substring(0, end);
+    }
+
+    public boolean matchesSessionKey(String expected, int expectedLength) {
+        if (expected == null) {
+            return false;
+        }
+
+        return expected.equals(shrink(expectedLength));
     }
 
     public static SmartString of(String value, int size) {

@@ -56,7 +56,9 @@ public class LoginService {
     }
     public List<LoggedSessionUser> getSessionUsers() { return sessionUsers; }
     public Optional<LoggedSessionUser> getSession(long userId) {
-        return sessionUsers.stream().filter(user -> user.getUser().getPlanet().getUserId() == userId).findAny();
+        return sessionUsers.stream()
+                .filter(session -> session.getUser() != null && session.getUser().getUserId() == userId)
+                .findAny();
     }
 
     public Optional<LoggedSessionAccount> getSessionAccount(String token) {

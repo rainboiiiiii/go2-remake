@@ -260,19 +260,22 @@ public class Go2Buffer {
     }
 
     public String getString(int limit) {
-        boolean finish = false;
         byte[] bytes = new byte[limit];
-        for(int i = 0; i < limit; i++) {
-            byte get = buffer.get();
-            if(get == 0) {
-                // System.out.println(get);
-                finish = true;
-                continue;
-            }
-            bytes[i] = get;
+
+        for (int i = 0; i < limit; i++) {
+            bytes[i] = buffer.get();
         }
-        // BufferUtil.printBytes(bytes);
-        return new String(bytes, StandardCharsets.UTF_8);
+
+        int end = 0;
+        while (end < limit && bytes[end] != 0) {
+            end++;
+        }
+
+        if (end == 0) {
+            return "";
+        }
+
+        return new String(bytes, 0, end, StandardCharsets.UTF_8);
     }
 
     public Go2Buffer callByte(int param2) {

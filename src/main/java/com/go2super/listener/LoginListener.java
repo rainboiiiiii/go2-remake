@@ -28,6 +28,7 @@ public class LoginListener implements PacketListener {
         Optional<LoggedSessionUser> sessionUser = loginService.getSession(packet.getUserId());
 
         if(!sessionUser.isPresent()) {
+            BotLogger.login("Login rejected (502): no session for userId=" + packet.getUserId());
             cancel(packet);
             return;
         }
@@ -35,7 +36,8 @@ public class LoginListener implements PacketListener {
         LoggedSessionUser session = sessionUser.get();
         String sessionKey = session.getSessionKey();
 
-        if(!packet.getSessionKey().shrink(25).equals(sessionKey)) {
+        if(!packet.getSessionKey().matchesSessionKey(sessionKey, 25)) {
+            BotLogger.login("Login rejected (502): session key mismatch for userId=" + packet.getUserId());
             cancel(packet);
             return;
         }
@@ -73,6 +75,7 @@ public class LoginListener implements PacketListener {
         Optional<LoggedSessionUser> sessionUser = loginService.getSession(packet.getUserId());
 
         if(!sessionUser.isPresent()) {
+            BotLogger.login("Login rejected (503): no session for userId=" + packet.getUserId());
             cancel(packet);
             return;
         }
@@ -81,7 +84,8 @@ public class LoginListener implements PacketListener {
 
         String sessionKey = session.getSessionKey();
 
-        if(!packet.getSessionKey().shrink(25).equals(sessionKey)) {
+        if(!packet.getSessionKey().matchesSessionKey(sessionKey, 25)) {
+            BotLogger.login("Login rejected (503): session key mismatch for userId=" + packet.getUserId());
             cancel(packet);
             return;
         }
@@ -104,6 +108,7 @@ public class LoginListener implements PacketListener {
         resgo2.getBuffer().putShort(0, (short) resgo2.getCalculatedSize());
 
         packet.getSmartServer().send(resgo2);
+        BotLogger.login("User entered game (guid=" + gameUser.getGuid() + ", userId=" + packet.getUserId() + ", transport=websocket-tog)");
 
     }
 
