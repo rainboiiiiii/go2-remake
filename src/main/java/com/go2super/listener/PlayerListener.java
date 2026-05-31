@@ -32,6 +32,7 @@ import com.go2super.service.GalaxyService;
 import com.go2super.service.PacketService;
 import com.go2super.packet.boot.RequestPlayerInfoPacket;
 import com.go2super.packet.boot.ResponseRoleInfo;
+import com.go2super.packet.construction.ResponseBuildInfoPacket;
 import com.go2super.packet.props.ResponsePropsInfoPacket;
 import com.go2super.service.UserService;
 import lombok.SneakyThrows;
@@ -83,6 +84,9 @@ public class PlayerListener implements PacketListener {
 
         // ResponsePlayerResourcePacket MSG_RESP_PLAYERRESOURCE [11]
         packet.getSmartServer().send(getPlayerResourcePacket(user));
+
+        // ResponseBuildInfoPacket MSG_RESP_BUILDINFO [11b] — own base layout for planet scene
+        packet.getSmartServer().send(getBuildInfoPacket(user));
 
         // ResponseCreateShipInfoPacket MSG_RESP_CREATESHIPINFO [12]
         // todo packet.getSmartServer().send(getCreateShipInfoPacket(user));
@@ -748,6 +752,22 @@ public class PlayerListener implements PacketListener {
 
         ResponseMapBlockPacket packet = new ResponseMapBlockPacket();
         packet.setBlockCount(GalaxyService.getInstance().getCurrentZones());
+        return packet;
+
+    }
+
+    private ResponseBuildInfoPacket getBuildInfoPacket(User user) {
+
+        ResponseBuildInfoPacket packet = new ResponseBuildInfoPacket();
+
+        packet.setGalaxyMapId(0);
+        packet.setGalaxyId(user.getPlanet().getPosition().galaxyId());
+        packet.setViewFlag((char) user.getViewFlag(user.getGuid()));
+        packet.setConsortiaLeader((short) 0);
+        packet.setStarType((char) 0);
+        packet.setBuildInfoList(UserService.getInstance().getBuilds(user));
+        packet.setDataLen(packet.getBuildInfoList().size());
+
         return packet;
 
     }
